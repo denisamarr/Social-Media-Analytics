@@ -39,3 +39,7 @@ Develop a comprehensive REST API application for social media analytics. This ap
 7. Security: Utilize Spring Security for authentication and authorization, ensuring secure access to social media analytics data.
 8. Documentation: Incorporate Swagger for comprehensive API documentation, aiding users and developers in understanding and utilizing the API.
 9. Dependency Management: Use Maven or Gradle for dependency management, including dependencies such as Spring Boot Starter Web, Spring Data MongoDB, etc.
+
+Swagger Sample Code:
+
+![Image 09 01 2024 at 17 22](https://github.com/denisamarr/Social-Media-Analytics---ST/assets/99808017/ec1e3763-5d0b-4153-a3b5-6ce3da85b5cd)
