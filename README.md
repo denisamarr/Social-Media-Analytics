@@ -49,58 +49,8 @@ Swagger Sample Code:
 
 **Elastic Mapping:**
 
-{
-  "mappings": {
-    "properties": {
-      "userId": {
-        "type": "keyword"  // Ideal for exact matches, crucial for user IDs
-      },
-      "username": {
-        "type": "text",
-        "fields": {
-          "keyword": {
-            "type": "keyword"
-          }
-        },
-        "analyzer": "standard"
-      },
-      "followers": {
-        "type": "integer"
-      },
-      "posts": {
-        "type": "nested",  // Nested type for posts
-        "properties": {
-          "postId": {
-            "type": "integer"
-          },
-          "content": {
-            "type": "text"
-          },
-          "likes": {
-            "type": "integer"
-          },
-          "comments": {
-            "type": "integer"
-          }
-        }
-      },
-      "engagementMetrics": {
-        "type": "nested",  // Nested type for engagement metrics
-        "properties": {
-          "likes": {
-            "type": "integer"
-          },
-          "comments": {
-            "type": "integer"
-          },
-          "shares": {
-            "type": "integer"
-          }
-        }
-      }
-    }
-  }
-}
+![Image 09 01 2024 at 17 32](https://github.com/denisamarr/Social-Media-Analytics---ST/assets/99808017/f71b56b9-069a-45b6-b5f6-1f25b2795918)
+
 
 1. Field: userId
   - Type: keyword
