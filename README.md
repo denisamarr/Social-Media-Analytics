@@ -9,7 +9,7 @@ Develop a comprehensive REST API application for social media analytics. This ap
 
 - Spring Boot: A robust Java-based framework for building scalable and efficient web applications, providing a solid foundation for the backend.
 - MongoDB: Chosen as the database management system for its flexibility and scalability in handling unstructured data typical in social media analytics.
-- Postman: Essential for testing and validating the functionalities of the REST API, ensuring seamless interaction between the frontend and backend.
+- Swagger: Utilized for API testing and documentation, offering a user-friendly interface for exploring and interacting with the API endpoints.
 - React: Utilized for building a responsive and user-friendly frontend, offering a modern interface for users to interact with social media analytics data.
 
 **Development Process:**
@@ -17,7 +17,7 @@ Develop a comprehensive REST API application for social media analytics. This ap
 1. Backend Setup (Spring Boot and MongoDB): Set up the backend server, define data models, and integrate with MongoDB to store social media analytics data efficiently.
 2. Database Design and Schema: Design a schema that accommodates various types of social media data, including user activities, engagement metrics, and post content.
 3. Implementing RESTful Endpoints: Develop RESTful endpoints to handle operations like fetching analytics data, user engagement metrics, and historical trends.
-4. Testing with Postman: Rigorously test the API using Postman to ensure all endpoints function as expected, handling various types of requests and providing accurate responses.
+4. Testing with Swagger: Utilize Swagger for API testing to ensure all endpoints function as expected, handling various types of requests and providing accurate responses.
 5. Frontend Development (React): Create user interfaces for visualizing social media analytics data, displaying engagement metrics, and allowing users to customize data views.
 6. Integration of Frontend and Backend: Connect the frontend and backend to ensure seamless communication, allowing users to interact with social media analytics in a cohesive manner.
 
@@ -26,7 +26,7 @@ Develop a comprehensive REST API application for social media analytics. This ap
 - Real-time Analytics: Provide users with real-time insights into social media activities, enabling them to stay updated on the latest trends.
 - User-friendly Interface: Utilize React to create an intuitive and visually appealing interface, enhancing the overall user experience.
 - Scalable Data Storage: MongoDB ensures scalability in handling diverse and unstructured social media data, accommodating the growing volume of information.
-- Comprehensive Testing: Thoroughly test the API to ensure reliable and precise handling of social media analytics, minimizing the risk of errors.
+- Comprehensive Testing: Thoroughly test the API using Swagger to ensure reliable and precise handling of social media analytics, minimizing the risk of errors.
 
 **Entities:**
 
@@ -43,3 +43,78 @@ Develop a comprehensive REST API application for social media analytics. This ap
 Swagger Sample Code:
 
 ![Image 09 01 2024 at 17 22](https://github.com/denisamarr/Social-Media-Analytics---ST/assets/99808017/ec1e3763-5d0b-4153-a3b5-6ce3da85b5cd)
+
+![Image 09 01 2024 at 17 24](https://github.com/denisamarr/Social-Media-Analytics---ST/assets/99808017/18c5dd29-dc51-4469-9a15-cec6b1b63be1)
+
+
+**Elastic Mapping:**
+
+{
+  "mappings": {
+    "properties": {
+      "userId": {
+        "type": "keyword"  // Ideal for exact matches, crucial for user IDs
+      },
+      "username": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        },
+        "analyzer": "standard"
+      },
+      "followers": {
+        "type": "integer"
+      },
+      "posts": {
+        "type": "nested",  // Nested type for posts
+        "properties": {
+          "postId": {
+            "type": "integer"
+          },
+          "content": {
+            "type": "text"
+          },
+          "likes": {
+            "type": "integer"
+          },
+          "comments": {
+            "type": "integer"
+          }
+        }
+      },
+      "engagementMetrics": {
+        "type": "nested",  // Nested type for engagement metrics
+        "properties": {
+          "likes": {
+            "type": "integer"
+          },
+          "comments": {
+            "type": "integer"
+          },
+          "shares": {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  }
+}
+
+1. Field: userId
+  - Type: keyword
+  - Description: Optimized for exact match queries, crucial for identifying specific user IDs.
+2. Field: username
+  - Type: text with a keyword sub-field
+  - Description: The text field is suitable for full-text searches, and the keyword sub-field is ideal for exact match queries. The analyzer property is set to "standard" for tokenization.
+3. Field: followers
+  - Type: integer
+  - Description: Stores the number of followers for a social media user.
+4. Field: posts
+  - Type: nested
+  - Description: Nested type for handling an array of posts. Each post has properties like postId, content, likes, and comments.
+5. Field: engagementMetrics
+  - Type: nested
+  - Description: Nested type for handling engagement metrics, including properties like likes, comments, and shares.
+
