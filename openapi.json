@@ -1,0 +1,195 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Social Media Analytics API",
+    "description": "API for gathering and analyzing social media data",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/analytics": {
+      "get": {
+        "summary": "Get social media analytics data",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "example": {
+                  "totalUsers": 10000,
+                  "totalPosts": 50000,
+                  "engagementMetrics": {
+                    "likes": 100000,
+                    "comments": 50000,
+                    "shares": 20000
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      }
+    },
+    "/user/{userId}/posts": {
+      "get": {
+        "summary": "Get posts for a specific user",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "description": "ID of the social media user",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "example": {
+                  "posts": [
+                    {
+                      "id": 1,
+                      "content": "Great day!",
+                      "likes": 50,
+                      "comments": 20
+                    },
+                    {
+                      "id": 2,
+                      "content": "Exciting news!",
+                      "likes": 100,
+                      "comments": 30
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/user/{userId}/posts/new": {
+      "post": {
+        "summary": "Create a new post for a specific user",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "description": "ID of the social media user",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Post created successfully"
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      }
+    },
+    "/user/{userId}/posts/{postId}": {
+      "delete": {
+        "summary": "Delete a post for a specific user",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "description": "ID of the social media user",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "path",
+            "name": "postId",
+            "required": true,
+            "description": "ID of the post to delete",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Post deleted successfully"
+          },
+          "404": {
+            "description": "User or post not found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "SocialMediaUser": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "username": {
+            "type": "string"
+          },
+          "followers": {
+            "type": "integer"
+          }
+        }
+      },
+      "Post": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "content": {
+            "type": "string"
+          },
+          "likes": {
+            "type": "integer"
+          },
+          "comments": {
+            "type": "integer"
+          }
+        }
+      },
+      "EngagementMetrics": {
+        "type": "object",
+        "properties": {
+          "likes": {
+            "type": "integer"
+          },
+          "comments": {
+            "type": "integer"
+          },
+          "shares": {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  }
+}
