@@ -1,0 +1,52 @@
+{
+  "mappings": {
+    "properties": {
+      "post": {
+        "type": "nested",
+        "properties": {
+          "userId": {
+            "type": "keyword"
+          },
+          "username": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            },
+            "analyzer": "standard"
+          },
+          "followers": {
+            "type": "integer"
+          },
+          "postId": {
+            "type": "integer"
+          },
+          "content": {
+            "type": "text"
+          },
+          "likes": {
+            "type": "integer"
+          },
+          "comments": {
+            "type": "integer"
+          },
+          "engagementMetrics": {
+            "type": "nested",
+            "properties": {
+              "likes": {
+                "type": "integer"
+              },
+              "comments": {
+                "type": "integer"
+              },
+              "shares": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
