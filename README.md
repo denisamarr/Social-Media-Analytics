@@ -42,29 +42,30 @@ Develop a comprehensive REST API application for social media analytics. This ap
 
 Swagger Sample Code:
 
-![Image 09 01 2024 at 17 22](https://github.com/denisamarr/Social-Media-Analytics---ST/assets/99808017/ec1e3763-5d0b-4153-a3b5-6ce3da85b5cd)
+![ED282D7E-89FE-46F6-9908-9E22F7941F8B](https://github.com/denisamarr/Social-Media-Analytics/assets/99808017/8d39baaf-70ee-429c-b1c5-33dacec70fb2)
 
-![Image 09 01 2024 at 17 24](https://github.com/denisamarr/Social-Media-Analytics---ST/assets/99808017/18c5dd29-dc51-4469-9a15-cec6b1b63be1)
+![2AFC3267-B1C1-4DD1-9B82-525E3C1348D3](https://github.com/denisamarr/Social-Media-Analytics/assets/99808017/ffbc39f7-d849-4c26-b187-63c1f5614f7f)
 
 
 **Elastic Mapping:**
 
-![Image 09 01 2024 at 17 32](https://github.com/denisamarr/Social-Media-Analytics---ST/assets/99808017/f71b56b9-069a-45b6-b5f6-1f25b2795918)
+
+![5E534D5F-D07F-4457-855C-7BAAA3CF6B9E](https://github.com/denisamarr/Social-Media-Analytics/assets/99808017/b449871e-610c-4652-a5ba-7d61e2ccd80d)
 
 
-1. Field: userId
-  - Type: keyword
-  - Description: Optimized for exact match queries, crucial for identifying specific user IDs.
-2. Field: username
-  - Type: text with a keyword sub-field
-  - Description: The text field is suitable for full-text searches, and the keyword sub-field is ideal for exact match queries. The analyzer property is set to "standard" for tokenization.
-3. Field: followers
-  - Type: integer
-  - Description: Stores the number of followers for a social media user.
-4. Field: posts
-  - Type: nested
-  - Description: Nested type for handling an array of posts. Each post has properties like postId, content, likes, and comments.
-5. Field: engagementMetrics
-  - Type: nested
-  - Description: Nested type for handling engagement metrics, including properties like likes, comments, and shares.
+1. 		Field: userId
+    - Type: keyword
+    - Description: Optimized for exact match queries, crucial for identifying specific user IDs.
+2. 		Field: username
+    - Type: text with a keyword sub-field
+    - Description: The text field is suitable for full-text searches, and the keyword sub-field is ideal for exact match queries. The analyzer property is set to "standard" for tokenization.
+3. 		Field: followers
+    - Type: integer
+    - Description: Stores the number of followers for a social media user.
+4. 		Field: posts
+    - Type: nested
+    - Description: Nested type for handling an array of posts. Each post has properties like postId, content, likes, and comments.
+5. 		Field: engagementMetrics
+    - Type: nested
+    - Description: Nested type for handling engagement metrics, including properties like likes, comments, and shares.
 
